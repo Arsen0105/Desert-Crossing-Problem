@@ -6,13 +6,20 @@
 	<title>Задача пересечения пустыни</title>
 	<script>
 		function solution() {
-			let s = document.getElementById('s').value;
-			let l = document.getElementById('l').value;
-			let v = document.getElementById('v').value;
+			document.getElementById("answer").innerHTML = "";
 
-			document.getElementById('st').innerHTML = s;
-			document.getElementById('lt').innerHTML = l;
-			document.getElementById('vt').innerHTML = v;
+			let s = document.getElementById("s").value;
+			let l = document.getElementById("l").value;
+			let v = document.getElementById("v").value;
+
+			if (!isFinite(s) || !isFinite(l) || !isFinite(v) || s == "" || l == "" || v == "") {
+				document.getElementById("answer").innerHTML = "Вы долбоёб. Где числа?!";
+				return;
+			}
+
+			document.getElementById("st").innerHTML = s;
+			document.getElementById("lt").innerHTML = l;
+			document.getElementById("vt").innerHTML = v;
 
 			let max_car = v / l;
 			let n = 1
@@ -23,7 +30,7 @@
     			n += 1;
 			}
 
-			document.getElementById('answer').innerHTML = "Ответ на задачу:  " + n;
+			document.getElementById("answer").innerHTML = "Ответ на задачу:  " + n;
 		}
 	</script>
 	<style type="text/css">
@@ -34,10 +41,10 @@
 			padding: 10px;
 		}
 		input {
-			width: 100px;
-		}
-		input[type=number] {
 			width: 93px;
+		}
+		input[type=button] {
+			width: 100px;
 		}
 	</style>
 </head>
